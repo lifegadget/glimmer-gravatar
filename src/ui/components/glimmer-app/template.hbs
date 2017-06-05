@@ -1,3 +1,19 @@
 <div>
-  <h1>Welcome to Glimmer!</h1>
+  <h1>Glimmer Gravatar!</h1>
+
+  <p>
+    Your Name:
+    <br/>
+    <input id='name' type='text' autocomplete="off" onkeyup={{action nameUpdated}}>
+  </p>
+
+  <p>
+    Your email:
+    <br/>
+    <input id='email' type='text' autocomplete="off" onkeyup={{action emailUpdated}}>
+  </p>
+
+  <p>
+    <glimmer-gravatar @name={{name}} @email={{email}} />
+  </p>
 </div>
