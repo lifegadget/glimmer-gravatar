@@ -12,8 +12,13 @@
     <br/>
     <input id='email' type='text' autocomplete="off" onkeyup={{action emailUpdated}}>
   </p>
+  <p>
+    Size:
+    <br/>
+    <input id='size' value={{size}} type='number' autocomplete="off" onchange={{action sizeUpdated}}>px
+  </p>  
 
   <p>
-    <glimmer-gravatar @name={{name}} @email={{email}} />
+    <glimmer-gravatar @name={{name}} @email={{email}} @size={{size}} />
   </p>
 </div>

@@ -1,3 +1,15 @@
 h1 {
   color: #444;
 }
+
+.invalid {
+  color: rgb(221, 221, 221);
+}
+
+.valid {
+  color: rgb(0, 100, 0);
+}
+
+.gravatar-image {
+  border-radius: 50%;
+}

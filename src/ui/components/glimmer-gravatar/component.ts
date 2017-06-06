@@ -1,13 +1,35 @@
 import Component, { tracked } from '@glimmer/component';
+import { Md5 } from 'ts-md5/dist/md5';
 
 export default class GlimmerGravatar extends Component {
+  @tracked defaultImage: string = 'identicon';
+  @tracked size: number = 300;
 
   @tracked('args')
   get isValidEmail() {
-    console.log('checking');
-    
-    return this.args.email.indexOf('@') !== -1 && this.args.email.indexOf('.') !== -1
+    const email: string = this.args.email || '';
+
+    return email.indexOf('@') !== -1 && email.indexOf('.') !== -1
       ? true
       : false;
   }
+
+  @tracked('args')
+  get emailHashValue() {
+    const email: string = this.args.email || '';
+    return this.isValidEmail
+      ? Md5.hashStr(email.toLowerCase().trim())
+      : undefined;
+  }
+
+  @tracked('isValidEmail')
+  get emailClassname() {
+    return this.isValidEmail ? 'valid' : 'invalid';
+  }
+
+  @tracked('emailHashValue')
+  get gravatar() {
+    return `https://www.gravatar.com/avatar/${this.emailHashValue}?s=${this.args.size}+&d=${this.defaultImage}`
+  }
 };
+

@@ -1,7 +1,16 @@
 <div>
-  gravatar for {{@name}} 
-  {{#if isValidEmail}}
-    VALID
-    ({{@email}})
-  {{/if}}
+  <p>
+    gravatar for {{@name}} 
+      (
+        <span class="{{emailClassname}}">
+          {{@email}}
+        </span>
+      )
+  </p>
+  <p>
+    email hash: {{emailHashValue}}
+  </p>
+  <p>
+    <img src={{gravatar}} class="gravatar-image" style="width: {{@size}}px; height: {{@size}}px" draggable=false>
+  </p>
 </div>
