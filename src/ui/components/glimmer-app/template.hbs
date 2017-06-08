@@ -1,6 +1,15 @@
 <div>
-  <h1>Glimmer Gravatar!</h1>
-
+  <h1>Glimatar!</h1>
+  <h2>
+      <p>
+    glimatar for {{name}} [{{initials}}]:
+      (
+        <span class="{{emailClassname}} {{iftt (eq email 'ken@ken.net') 'foo' 'bar'}}">
+          {{email}}
+        </span>
+      )
+  </p>
+  </h2>
   <p>
     Your Name:
     <br/>
@@ -12,13 +21,37 @@
     <br/>
     <input id='email' type='text' autocomplete="off" onkeyup={{action emailUpdated}}>
   </p>
+
   <p>
     Size:
     <br/>
     <input id='size' value={{size}} type='number' autocomplete="off" onchange={{action sizeUpdated}}>px
   </p>  
+  <p>
+    Provider:
+    <br/>
+    <input type="radio"
+      name="provider" 
+      value="gravatar" 
+      checked="checked"
+      onclick={{action changeProvider 'gravatar'}}>
+      Gravatar
+     <br>
+    <input type="radio" 
+      name="provider" 
+      value="adorable" 
+      onclick={{action changeProvider 'adorable'}}> 
+      Adorable
+    <br>
+
+  </p>
 
   <p>
-    <glimmer-gravatar @name={{name}} @email={{email}} @size={{size}} />
+    <glimmer-gravatar 
+      @name={{name}} 
+      @email={{email}} 
+      @size={{size}} 
+      @provider={{provider}} 
+    />
   </p>
 </div>

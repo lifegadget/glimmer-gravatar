@@ -5,6 +5,11 @@ export default class GlimmerGravatar extends Component {
   @tracked defaultImage: string = 'identicon';
   @tracked size: number = 300;
 
+  @tracked('size')
+  get fontSize(): number {
+    return Math.round(this.size * 10 / 16) / 100;
+  }
+
   @tracked('args')
   get isValidEmail() {
     const email: string = this.args.email || '';
@@ -27,9 +32,12 @@ export default class GlimmerGravatar extends Component {
     return this.isValidEmail ? 'valid' : 'invalid';
   }
 
-  @tracked('emailHashValue')
+  @tracked('emailHashValue', 'provider')
   get gravatar() {
-    return `https://www.gravatar.com/avatar/${this.emailHashValue}?s=${this.args.size}+&d=${this.defaultImage}`
+    const provider = this.args.provider || 'gravatar';
+    return provider === 'gravatar'
+      ? `https://www.gravatar.com/avatar/${this.emailHashValue}?s=${this.args.size}+&d=${this.defaultImage}`
+      : `https://api.adorable.io/avatars/${this.args.size}/${this.args.email}`
   }
 };
 
