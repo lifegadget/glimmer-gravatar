@@ -3,6 +3,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+row, column, body {
+  display: flex;
+}
+
+column {
+  flex-direction: column;
+  padding: 1rem;
+}
+
 h1 {
   color: #444;
 }

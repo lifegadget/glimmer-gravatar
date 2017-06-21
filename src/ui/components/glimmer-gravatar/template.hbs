@@ -1,11 +1,12 @@
 <div>
   <p>
-    {{#if (eq 'abc' 'abcd')}}
-      <div class="glimatar-initials" style="width: {{@size}}px; height: {{@size}}px" draggable=false >
-        <span class="initials">{{initials}}</span>
-      </div>
-    {{else}}
+    {{#if isValidEmail}}
       <img src={{gravatar}} class="glimatar-image" style="width: {{@size}}px; height: {{@size}}px" draggable=false>
+    {{else}}
+      <img 
+        src="images/GlimmerJS.png" 
+        style="width: {{@size}}px; height: {{@size}}px" 
+        draggable=false >
     {{/if}}
   </p>
 </div>
