@@ -11,23 +11,31 @@
     <p>
       Size:
       <br/>
-      <input id='size' value={{size}} type='number' autocomplete="off" onchange={{action sizeUpdated}}>px
+      <input 
+        id='size' 
+        value={{size}} 
+        type='number' 
+        autocomplete="off" 
+        onchange={{action sizeUpdated}}
+      > px
     </p>  
     <p>
       Provider:
       <br/>
-      <input type="radio"
+      <input 
+        type="radio"
         name="provider" 
         value="gravatar" 
         checked="checked"
-        onclick={{action changeProvider 'gravatar'}}>
-        Gravatar
+        onclick={{action changeProvider 'gravatar'}}
+      /> Gravatar
       <br>
-      <input type="radio" 
+      <input 
+        type="radio" 
         name="provider" 
         value="adorable" 
-        onclick={{action changeProvider 'adorable'}}> 
-        Adorable
+        onclick={{action changeProvider 'adorable'}}
+      /> Adorable
       <br>
   
     </p>

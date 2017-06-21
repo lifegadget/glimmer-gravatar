@@ -2,7 +2,7 @@ import Component, { tracked } from '@glimmer/component';
 import { Md5 } from 'ts-md5/dist/md5';
 
 export default class GlimmerGravatar extends Component {
-  @tracked defaultImage: string = 'identicon';
+  public defaultImage: string = 'mm';
   @tracked size: number = 300;
 
   @tracked('size')
@@ -33,7 +33,7 @@ export default class GlimmerGravatar extends Component {
   }
 
   @tracked('emailHashValue', 'provider')
-  get gravatar() {
+  get avatar() {
     const provider = this.args.provider || 'gravatar';
     return provider === 'gravatar'
       ? `https://www.gravatar.com/avatar/${this.emailHashValue}?s=${this.args.size}+&d=${this.defaultImage}`
