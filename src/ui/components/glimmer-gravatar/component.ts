@@ -5,11 +5,6 @@ export default class GlimmerGravatar extends Component {
   public defaultImage: string = 'mm';
   @tracked size: number = 300;
 
-  @tracked('size')
-  get fontSize(): number {
-    return Math.round(this.size * 10 / 16) / 100;
-  }
-
   @tracked('args')
   get isValidEmail() {
     const email: string = this.args.email || '';
@@ -25,11 +20,6 @@ export default class GlimmerGravatar extends Component {
     return this.isValidEmail
       ? Md5.hashStr(email.toLowerCase().trim())
       : undefined;
-  }
-
-  @tracked('isValidEmail')
-  get emailClassname() {
-    return this.isValidEmail ? 'valid' : 'invalid';
   }
 
   @tracked('emailHashValue', 'provider')

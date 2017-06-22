@@ -2,7 +2,6 @@ import Component, { tracked } from "@glimmer/component";
 
 export default class GlimmerApp extends Component {
   @tracked email: string;
-  @tracked name: string;
   @tracked size: number = 300;
   @tracked provider: string = 'gravatar';
 
